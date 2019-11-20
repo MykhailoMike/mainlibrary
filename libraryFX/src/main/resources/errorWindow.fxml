@@ -4,7 +4,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="200.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="libraryFXclient.ErrorWindowController">
    <children>
       <AnchorPane prefHeight="63.0" prefWidth="600.0" style="-fx-background-color: #B22222; -fx-view-order: #FFFAFA;">
@@ -16,7 +15,7 @@
             </Label>
          </children>
       </AnchorPane>
-      <Label fx:id="errorLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="202.0" layoutY="100.0" text="errorMessage">
+      <Label fx:id="errorLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="104.0" layoutY="100.0" text="errorMessage">
          <font>
             <Font name="Times New Roman" size="36.0" />
          </font>

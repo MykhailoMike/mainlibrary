@@ -1,8 +1,10 @@
+libraryFXclient\ErrorWindowController.class
+repository\DBConfigs.class
+libraryFXclient\SignUpWindowController.class
+repository\ReaderRepository.class
 libraryFXMain\Main.class
 someInfo.class
 libraryFXclient\ReaderWindowController.class
-repository\DBConfigs.class
-libraryFXclient\SignUpWindowController.class
+libraryFXclient\LibrarianWindowController.class
 repository\DBConstants.class
-repository\ReaderRepository.class
 libraryFXclient\LoginWindowController.class

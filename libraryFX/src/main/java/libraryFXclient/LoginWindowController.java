@@ -12,7 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import repository.DBConfigs;
+import libraryFXclient.ErrorWindowController;
 
 public class LoginWindowController {
 
@@ -46,32 +46,25 @@ public class LoginWindowController {
             String loginField = login_field.getText().trim();
             String passwordField = password_field.getText().trim();
             if (loginField.equals("") || passwordField.equals("")) {
-                FXMLLoader errorLoader = new FXMLLoader(getClass().getResource("../errorWindow.fxml"));
-                try {
-                    Parent errorRoot = (Parent) errorLoader.load();
-                    ErrorWindowController controller = errorLoader.<ErrorWindowController>getController();
-                    controller.setErrorLabel("Заполните оба поля ввода!");
-                    Stage stage = new Stage();
-                    stage.setScene(new Scene(errorRoot));
-                    stage.showAndWait();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+                errorLoad("Заполните оба поля ввода!");
             } else {
                 loginSignUpButton.getScene().getWindow().hide();
-                //loginUser(loginField, passwordField);
-                if (loginField.equals("Admin")) {
+                boolean checkForAdmin = loginUser(loginField, passwordField);
+                if (checkForAdmin == true) {
                     toLoad("../librarianWindow.fxml");
-                } else {
+                } else if (checkForAdmin == false) {
                     toLoad("../readerWindow.fxml");
+                } else {
+                    errorLoad("Логин или пароль введены не правильно!");
                 }
             }
         });
     }
 
-    //    private boolean loginUser(String loginField, String passwordField) {
-//        return false;
-//    }
+    private boolean loginUser(String loginField, String passwordField) {
+        return loginField.equals("Admin");
+    }
+
     private void toLoad(String url) {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource(url));
@@ -84,5 +77,19 @@ public class LoginWindowController {
         Stage stage = new Stage();
         stage.setScene(new Scene(root));
         stage.show();
+    }
+
+    private void errorLoad(String errorMessage) {
+        FXMLLoader errorLoader = new FXMLLoader(getClass().getResource("../errorWindow.fxml"));
+        try {
+            Parent errorRoot = (Parent) errorLoader.load();
+            ErrorWindowController controller = errorLoader.<ErrorWindowController>getController();
+            controller.setErrorLabel(errorMessage);
+            Stage stage = new Stage();
+            stage.setScene(new Scene(errorRoot));
+            stage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -1,14 +1,15 @@
 package libraryFXclient;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
-
-import java.lang.reflect.Field;
-import java.text.Format;
+import javafx.scene.paint.Color;
+import javafx.stage.Stage;
+import java.io.IOException;
 
 public class LibrarianWindowController {
 
@@ -33,17 +34,36 @@ public class LibrarianWindowController {
     @FXML
     void initialize() {
         orderSearchButton.setOnAction(event -> {
-            if (orderSearchField == null){
-                System.out.println("Field is empty!");
+            if (orderSearchField.getText().trim().equals("")) {
+                System.out.println("True");
+                errorLoad("Поле поиска пустое!");
             } else {
-
+                System.out.println("False");
             }
         });
         allReadersButton.setOnAction(event -> {
-            //overdueField.setTextFill('#1eb53c');
+            overdueField.setText("Читатели");
+            overdueField.setTextFill(Color.web("#1eb53c"));
         });
-        overdueOnlyButton.setOnAction(event -> {});
-        orderRefreshingButton.setOnAction(event -> {});
+        overdueOnlyButton.setOnAction(event -> {
+            overdueField.setText("Должники");
+            overdueField.setTextFill(Color.web("#b51515"));
+        });
+        orderRefreshingButton.setOnAction(event -> {
+        });
     }
 
+    private void errorLoad(String errorMessage) {
+        FXMLLoader errorLoader = new FXMLLoader(getClass().getResource("../errorWindow.fxml"));
+        try {
+            Parent errorRoot = (Parent) errorLoader.load();
+            ErrorWindowController controller = errorLoader.<ErrorWindowController>getController();
+            controller.setErrorLabel(errorMessage);
+            Stage stage = new Stage();
+            stage.setScene(new Scene(errorRoot));
+            stage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
