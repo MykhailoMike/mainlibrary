@@ -5,23 +5,14 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import org.springframework.http.HttpHeaders;
 import org.springframework.web.client.RestTemplate;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
-import java.util.Arrays;
-import java.util.List;
 
 
 public class SignUpWindowController {
@@ -53,6 +44,8 @@ public class SignUpWindowController {
     @FXML
     private Button signUpButton;
 
+    @FXML
+    private Button backButton;
 
     @FXML
     void initialize() {
@@ -79,9 +72,9 @@ public class SignUpWindowController {
         newReaderParamsMap.put("firstName", signUpFirstName.getText());
         newReaderParamsMap.put("lastName", signUpLastName.getText());
         newReaderParamsMap.put("phone", signUpPhone.getText());
-        newReaderParamsMap.put("address", signUpAddress);
-        newReaderParamsMap.put("login", signUpLogin);
-        newReaderParamsMap.put("password", signUpPassword);
+        newReaderParamsMap.put("address", signUpAddress.getText());
+        newReaderParamsMap.put("login", signUpLogin.getText());
+        newReaderParamsMap.put("password", signUpPassword.getText());
 
         HttpEntity<Map<String, Object>> newReaderEntity =
                 new HttpEntity<Map<String, Object>>(newReaderParamsMap, headers);
@@ -91,20 +84,10 @@ public class SignUpWindowController {
         System.out.println(result);
 
     });
+        commonControllers controller = new commonControllers();
+        backButton.setOnAction(event -> {
+            backButton.getScene().getWindow().hide();
+            controller.toLoad("../loginWindow.fxml");
+        });
     }
-
-
-
-//    {
-//        ReaderRepository readerRepository = new ReaderRepository();
-//
-//        signUpButton.setOnAction(event -> {
-//            readerRepository.signUpReader(signUpFirstName.getText(), signUpLastName.getText(),
-//                    signUpPhone.getText(), signUpAddress.getText(),
-//                    signUpLogin.getText(), signUpPassword.getText());
-//        });
-//
-//    }
-
-
 }

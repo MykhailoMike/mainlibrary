@@ -17,4 +17,16 @@ public class ReaderWindowController {
     @FXML
     private Button returnBooksButton;
 
+    @FXML
+    private Button backButton;
+
+    @FXML
+    void initialize() {
+        commonControllers controller = new commonControllers();
+        backButton.setOnAction(event -> {
+            backButton.getScene().getWindow().hide();
+            controller.toLoad("../loginWindow.fxml");
+        });
+    }
+
 }

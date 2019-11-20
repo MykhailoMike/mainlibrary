@@ -54,5 +54,6 @@
             <Font name="System Bold" size="36.0" />
          </font>
       </Label>
+      <Button fx:id="backButton" layoutX="7.0" layoutY="7.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="50.0" text="Back" />
     </children>
 </AnchorPane>

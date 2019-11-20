@@ -1,15 +1,10 @@
 package libraryFXclient;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
-import javafx.stage.Stage;
-import java.io.IOException;
 
 public class LibrarianWindowController {
 
@@ -32,11 +27,15 @@ public class LibrarianWindowController {
     private Label overdueField;
 
     @FXML
+    private Button backButton;
+
+    @FXML
     void initialize() {
+        commonControllers controller = new commonControllers();
         orderSearchButton.setOnAction(event -> {
             if (orderSearchField.getText().trim().equals("")) {
                 System.out.println("True");
-                errorLoad("Поле поиска пустое!");
+                controller.errorLoad("Поле поиска пустое!");
             } else {
                 System.out.println("False");
             }
@@ -51,19 +50,9 @@ public class LibrarianWindowController {
         });
         orderRefreshingButton.setOnAction(event -> {
         });
-    }
-
-    private void errorLoad(String errorMessage) {
-        FXMLLoader errorLoader = new FXMLLoader(getClass().getResource("../errorWindow.fxml"));
-        try {
-            Parent errorRoot = (Parent) errorLoader.load();
-            ErrorWindowController controller = errorLoader.<ErrorWindowController>getController();
-            controller.setErrorLabel(errorMessage);
-            Stage stage = new Stage();
-            stage.setScene(new Scene(errorRoot));
-            stage.showAndWait();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        backButton.setOnAction(event -> {
+            backButton.getScene().getWindow().hide();
+            controller.toLoad("../loginWindow.fxml");
+        });
     }
 }
