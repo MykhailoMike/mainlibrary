@@ -22,7 +22,7 @@
                         <Font name="Arial Bold" size="18.0" />
                     </font>
                 </Label>
-                <Label layoutX="531.0" layoutY="54.0" prefHeight="29.0" prefWidth="91.0" text="Должники" textFill="#b51515">
+                <Label fx:id="overdueField" layoutX="531.0" layoutY="54.0" prefHeight="29.0" prefWidth="91.0" text="Должники" textFill="#b51515">
                     <font>
                         <Font name="Arial Bold" size="18.0" />
                     </font>

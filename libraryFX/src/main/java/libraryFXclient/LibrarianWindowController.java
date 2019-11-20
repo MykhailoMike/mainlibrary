@@ -2,8 +2,13 @@ package libraryFXclient;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.text.Text;
 
 import java.lang.reflect.Field;
+import java.text.Format;
 
 public class LibrarianWindowController {
 
@@ -20,7 +25,10 @@ public class LibrarianWindowController {
     private Button orderRefreshingButton;
 
     @FXML
-    private Field orderSearchField;
+    private TextField orderSearchField;
+
+    @FXML
+    private Label overdueField;
 
     @FXML
     void initialize() {
@@ -31,7 +39,9 @@ public class LibrarianWindowController {
 
             }
         });
-        allReadersButton.setOnAction(event -> {});
+        allReadersButton.setOnAction(event -> {
+            //overdueField.setTextFill('#1eb53c');
+        });
         overdueOnlyButton.setOnAction(event -> {});
         orderRefreshingButton.setOnAction(event -> {});
     }
