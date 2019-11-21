@@ -1,11 +1,18 @@
+package transferTO;
+
 public class Reader {
 
+    private int id;
     private String firstName;
     private String lastName;
     private String tel;
     private String address;
     private String login;
     private String password;
+
+    public int getId() { return id; }
+
+    public void setId(int id) { this.id = id; }
 
     public String getFirstName() {
         return firstName;
@@ -58,6 +65,7 @@ public class Reader {
     @Override
     public String toString() {
         return "Reader{" +
+                "id='" + id + '\'' +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", tel='" + tel + '\'' +

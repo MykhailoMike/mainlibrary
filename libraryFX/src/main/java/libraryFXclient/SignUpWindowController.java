@@ -61,27 +61,27 @@ public class SignUpWindowController {
 
         signUpButton.getScene().getWindow().hide();
 
-        final String addReaderUrl = "http://localhost:8081/users/add";
-
-        RestTemplate newReaderTemplate = new RestTemplate();
-
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
-
-        Map<String, Object> newReaderParamsMap = new HashMap<>();
-        newReaderParamsMap.put("firstName", signUpFirstName.getText());
-        newReaderParamsMap.put("lastName", signUpLastName.getText());
-        newReaderParamsMap.put("phone", signUpPhone.getText());
-        newReaderParamsMap.put("address", signUpAddress.getText());
-        newReaderParamsMap.put("login", signUpLogin.getText());
-        newReaderParamsMap.put("password", signUpPassword.getText());
-
-        HttpEntity<Map<String, Object>> newReaderEntity =
-                new HttpEntity<Map<String, Object>>(newReaderParamsMap, headers);
-
-        String result = newReaderTemplate.postForObject(addReaderUrl, newReaderEntity, String.class);
-
-        System.out.println(result);
+//        final String addReaderUrl = "http://localhost:8081/users/add";
+//
+//        RestTemplate newReaderTemplate = new RestTemplate();
+//
+//        HttpHeaders headers = new HttpHeaders();
+//        headers.setContentType(MediaType.APPLICATION_JSON);
+//
+//        Map<String, Object> newReaderParamsMap = new HashMap<>();
+//        newReaderParamsMap.put("firstName", signUpFirstName.getText());
+//        newReaderParamsMap.put("lastName", signUpLastName.getText());
+//        newReaderParamsMap.put("phone", signUpPhone.getText());
+//        newReaderParamsMap.put("address", signUpAddress.getText());
+//        newReaderParamsMap.put("login", signUpLogin.getText());
+//        newReaderParamsMap.put("password", signUpPassword.getText());
+//
+//        HttpEntity<Map<String, Object>> newReaderEntity =
+//                new HttpEntity<Map<String, Object>>(newReaderParamsMap, headers);
+//
+//        String result = newReaderTemplate.postForObject(addReaderUrl, newReaderEntity, String.class);
+//
+//        System.out.println(result);
 
     });
         commonControllers controller = new commonControllers();
