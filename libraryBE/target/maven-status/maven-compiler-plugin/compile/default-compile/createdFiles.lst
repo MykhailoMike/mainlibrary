@@ -1,0 +1,17 @@
+domain\Order.class
+domain\Book.class
+services\UserServices.class
+domain\Status.class
+services\BooksServices.class
+myLibrary\Application.class
+myLibrary\OrdersController.class
+repository\OrdersRepository.class
+myLibrary\ReadersController.class
+domain\User.class
+repository\BooksRepository.class
+repository\ReadersRepository.class
+domain\Librarian.class
+repository\LibrariansRepository.class
+myLibrary\BooksController.class
+myLibrary\LibrariansController.class
+repository\AbstractRepository.class
