@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-public class ReaderRepository extends DBConfigs {
+public class SamleReaderRepository extends DBConfigs {
 
     Connection dbConnection;
 
