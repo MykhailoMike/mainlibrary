@@ -1,8 +1,8 @@
-package transferTO;
+package libraryFXclient.to;
 
 public class Reader {
 
-    private int id;
+    private int ID;
     private String firstName;
     private String lastName;
     private String tel;
@@ -10,9 +10,13 @@ public class Reader {
     private String login;
     private String password;
 
-    public int getId() { return id; }
+    public int getID() {
+        return ID;
+    }
 
-    public void setId(int id) { this.id = id; }
+    public void setID(int readerID) {
+        this.ID = readerID;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -64,8 +68,7 @@ public class Reader {
 
     @Override
     public String toString() {
-        return "Reader{" +
-                "id='" + id + '\'' +
+        return "libraryFXclient.to.Reader{" +
                 "firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", tel='" + tel + '\'' +

@@ -27,7 +27,7 @@
                         <Font name="Arial Bold" size="18.0" />
                     </font>
                 </Label>
-                <TextField fx:id="orderSearchField" layoutX="400.0" layoutY="439.0" prefHeight="29.0" prefWidth="269.0" promptText="Номер заказа или фамилия читателя" />
+                <TextField fx:id="orderSearchField" layoutX="398.0" layoutY="439.0" prefHeight="29.0" prefWidth="271.0" promptText="Номер заказа или фамилия читателя" />
                 <Button fx:id="orderSearchButton" layoutX="680.0" layoutY="439.0" mnemonicParsing="false" text="Искать" />
                 <TreeTableView layoutX="25.0" layoutY="92.0" prefHeight="376.0" prefWidth="338.0">
                     <columns>
@@ -44,6 +44,11 @@
                 <Button fx:id="overdueOnlyButton" layoutX="582.0" layoutY="479.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="139.0" text="Должники" />
                 <Button fx:id="orderRefreshingButton" layoutX="114.0" layoutY="479.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="171.0" text="Обновить список заказов" />
                 <Button fx:id="allReadersButton" layoutX="413.0" layoutY="479.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="163.0" text="Все читатели" />
+            <Label fx:id="currentLibrarianLabel" layoutX="25.0" layoutY="19.0" prefHeight="29.0" prefWidth="228.0" textFill="#030303">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Label>
             </children>
         </AnchorPane>
         <Label layoutX="274.0" prefHeight="63.0" prefWidth="210.0" text="Библиотека" textFill="WHITE">
@@ -51,6 +56,5 @@
                 <Font name="System Bold" size="36.0" />
             </font>
         </Label>
-      <Button fx:id="backButton" layoutX="8.0" layoutY="8.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0"  text="Back" />
     </children>
 </AnchorPane>

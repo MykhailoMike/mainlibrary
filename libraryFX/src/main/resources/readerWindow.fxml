@@ -31,9 +31,9 @@
             <Button fx:id="bookSearchButton" layoutX="305.0" layoutY="439.0" mnemonicParsing="false" text="Искать" />
             <TreeTableView layoutX="25.0" layoutY="92.0" prefHeight="334.0" prefWidth="338.0">
               <columns>
-                <TreeTableColumn prefWidth="137.0" text="Название" />
-                <TreeTableColumn prefWidth="132.0" text="Автор" />
-                  <TreeTableColumn prefWidth="68.0" text="Наличие" />
+                <TreeTableColumn fx:id="bookNameColumn" prefWidth="145.0" text="Название" />
+                <TreeTableColumn fx:id="authorNameColumn" prefWidth="124.0" text="Автор" />
+                  <TreeTableColumn fx:id="availabilityColumn" prefWidth="68.0" text="Наличие" />
               </columns>
             </TreeTableView>
             <TreeTableView layoutX="398.0" layoutY="92.0" prefHeight="376.0" prefWidth="338.0">
@@ -46,6 +46,11 @@
             <Button fx:id="returnBooksButton" layoutX="498.0" layoutY="479.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="139.0" text="Сдать в библиотеку" />
             <Button fx:id="orderReadingRoomButton" layoutX="26.0" layoutY="479.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="171.0" text="Заказать в читальный зал" />
             <Button fx:id="orderHomeButton" layoutX="202.0" layoutY="479.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="163.0" text="Заказать на дом" />
+            <Label fx:id="currentReaderLabel" layoutX="22.0" layoutY="19.0" prefHeight="29.0" prefWidth="228.0" textFill="#030303">
+               <font>
+                  <Font name="Arial Bold" size="18.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
       <Label layoutX="274.0" prefHeight="63.0" prefWidth="210.0" text="Библиотека" textFill="WHITE">
@@ -53,6 +58,5 @@
             <Font name="System Bold" size="36.0" />
          </font>
       </Label>
-      <Button fx:id="backButton" layoutX="8.0" layoutY="8.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="Back" />
    </children>
 </AnchorPane>

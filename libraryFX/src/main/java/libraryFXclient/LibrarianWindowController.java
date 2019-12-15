@@ -5,6 +5,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
+import libraryFXclient.to.Reader;
+
+import java.util.List;
+
+import static libraryFXclient.LoginWindowController.currentLibrarianName;
+import static libraryFXclient.LoginWindowController.getReadersToFX;
 
 public class LibrarianWindowController {
 
@@ -27,32 +33,12 @@ public class LibrarianWindowController {
     private Label overdueField;
 
     @FXML
-    private Button backButton;
+    private Label currentLibrarianLabel;
 
     @FXML
     void initialize() {
-        commonControllers controller = new commonControllers();
-        orderSearchButton.setOnAction(event -> {
-            if (orderSearchField.getText().trim().equals("")) {
-                System.out.println("True");
-                controller.errorLoad("Поле поиска пустое!");
-            } else {
-                System.out.println("False");
-            }
-        });
-        allReadersButton.setOnAction(event -> {
-            overdueField.setText("Читатели");
-            overdueField.setTextFill(Color.web("#1eb53c"));
-        });
-        overdueOnlyButton.setOnAction(event -> {
-            overdueField.setText("Должники");
-            overdueField.setTextFill(Color.web("#b51515"));
-        });
-        orderRefreshingButton.setOnAction(event -> {
-        });
-        backButton.setOnAction(event -> {
-            backButton.getScene().getWindow().hide();
-            controller.toLoad("../loginWindow.fxml");
-        });
+        currentLibrarianLabel.setText(currentLibrarianName);
+        List<Reader> readers = getReadersToFX();
     }
 }
+
