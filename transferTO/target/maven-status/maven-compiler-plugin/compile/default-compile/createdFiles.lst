@@ -1,2 +1,4 @@
-libraryFXclient\to\Librarian.class
 libraryFXclient\to\Reader.class
+libraryFXclient\to\Librarian.class
+libraryFXclient\to\ReaderTO.class
+libraryFXclient\to\Book.class
