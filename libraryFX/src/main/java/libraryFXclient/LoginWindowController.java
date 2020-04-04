@@ -1,10 +1,8 @@
 package libraryFXclient;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
-import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -21,12 +19,6 @@ import org.springframework.web.client.RestTemplate;
 public class LoginWindowController {
 
     @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
-
-    @FXML
     private TextField login_field;
 
     @FXML
@@ -38,14 +30,11 @@ public class LoginWindowController {
     @FXML
     private Button loginSignUpButton;
 
-    @FXML
-    private Button testButton;
-
-    public static LoginWindowController currentReader = new LoginWindowController();
+    static LoginWindowController currentReader = new LoginWindowController();
     public static LoginWindowController currentLibrarian = new LoginWindowController();
 
-    public static String currentReaderName;
-    public static String currentLibrarianName;
+    static String currentReaderName;
+    static String currentLibrarianName;
 
 
     @FXML
@@ -99,19 +88,10 @@ public class LoginWindowController {
                 }
             }
             openLoginErrorWindow();
-            return;
         });
-//            else System.out.println("Пожалуйста, ввведите логин и пароль");
-//
-//        });
-//    }
-//
-//    private void loginUser(String loginText, String loginPassword) {
-//    }
-
     }
 
-    public static List<Reader> getReadersToFX() {
+    static List<Reader> getReadersToFX() {
         final String url = "http://localhost:8081/readers";
 
         RestTemplate operations = new RestTemplate();
@@ -124,7 +104,7 @@ public class LoginWindowController {
 
     }
 
-    public static List<Librarian> getLibrariansToFX() {
+    private static List<Librarian> getLibrariansToFX() {
         final String url = "http://localhost:8081/librarians";
 
         RestTemplate operations = new RestTemplate();
@@ -137,7 +117,7 @@ public class LoginWindowController {
 
     }
 
-    public void openReadersWindow() {
+    void openReadersWindow() {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("../readerWindow.fxml"));
         try {
@@ -152,7 +132,7 @@ public class LoginWindowController {
 
     }
 
-    public void openLibrariansWindow() {
+    private void openLibrariansWindow() {
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("../librarianWindow.fxml"));
         try {

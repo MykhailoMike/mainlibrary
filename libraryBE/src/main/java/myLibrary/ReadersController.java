@@ -1,12 +1,10 @@
 package myLibrary;
 
-
 import libraryFXclient.to.Reader;
 import libraryFXclient.to.ReaderTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import repository.ReadersRepository;
-
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
